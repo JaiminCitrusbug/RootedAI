@@ -22,7 +22,7 @@ Rules:
 - If the answer is vague, incomplete, or unclear → ask ONE gentle clarification.
 - If the answer is clear → briefly acknowledge ("Thank you.") and then proceed to the next scripted question.
 - Do NOT skip, rephrase, or invent questions.
-- End the interview politely when all questions are completed.
+- End the interview politely with a closing statement - "This concludes our interview. I appreciate your openness and insights throughout our conversation. Have a great day!" when all questions are completed.
 
 Here is the full CAAP script:
 
@@ -160,7 +160,7 @@ if st.session_state.started and not st.session_state.closing:
 if st.session_state.closing:
     transcript = f"**Interview Transcript for {st.session_state.user_name}**\n\n"
     for msg in st.session_state.messages:
-        if msg["role"] == "assistant" and not msg["content"].startswith("🌱 Hello"):
+        if msg["role"] == "assistant":
             transcript += f"[Assistant]: {msg['content']}\n"
         elif msg["role"] == "user":
             transcript += f"[Participant]: {msg['content']}\n"
